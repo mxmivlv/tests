@@ -1,7 +1,9 @@
-public class MethodKata
+namespace Kata;
+
+public class DecisionKata
 {
     /// <summary>
-    /// Способы создания номера телефона из входящего массива
+    /// Создание номера телефона из входящего массива
     /// </summary>
     /// <param name="numbers">Массив цифр</param>
     /// <returns>Строка</returns>

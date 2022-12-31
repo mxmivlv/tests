@@ -1,25 +1,26 @@
+﻿using Kata;
 using NUnit.Framework;
 
 [TestFixture]
-public class MethodKataTest
+public class DecisionKataTest
 {
     #region Поле
 
-    private MethodKata methodKata;
+    private DecisionKata decisionKata;
 
     #endregion
 
-    #region Конструктор
+    #region Метод
 
     [SetUp]
-    public void ArrayMaxTestSetUp()
+    public void DecisionKataTestSetUp()
     {
-        methodKata = new MethodKata();
+        decisionKata = new DecisionKata();
     }
 
     #endregion
 
-    #region Тест 1
+    #region Тест 1. Создание номера телефона из входящего массива
 
     private static readonly object[] ArrayForTask1 = new object[]
     {
@@ -28,11 +29,11 @@ public class MethodKataTest
         new object[] { new int[] { 3, 2, 3, 4, 5, 6, 7, 8, 9, 0 }, "(323) 456-7890" }
     };
     
-    [Test(Description = "Способы создания номера телефона из входящего массива")]
+    [Test(Description = "Создание номера телефона из входящего массива")]
     [TestCaseSource(nameof(ArrayForTask1))]
     public void CreatePhoneNumberTest(int[] array, string createPhone)
     {
-        var actual = methodKata.CreatePhoneNumber(array);
+        var actual = decisionKata.CreatePhoneNumber(array);
         
         var expected = createPhone;
         
@@ -41,7 +42,7 @@ public class MethodKataTest
 
     #endregion
 
-    #region Тест 2
+    #region Тест 2. Вытащить из массива только цифры
 
     private static readonly object[] ArrayForTask2 = new object[]
     {
@@ -54,7 +55,7 @@ public class MethodKataTest
     [TestCaseSource(nameof(ArrayForTask2))]
     public void GetIntegersFromListTest(List<object> listObj, List<int> listInt )
     {
-        var actual = methodKata.GetIntegersFromList(listObj);
+        var actual = decisionKata.GetIntegersFromList(listObj);
         
         var expected = listInt;
 
@@ -63,7 +64,7 @@ public class MethodKataTest
     
     #endregion
 
-    #region Тест 3
+    #region Тест 3. Из строки нужно каждые две буквы объединить и положить в массив
 
     private static readonly object[] ArrayForTask3 = new object[]
     {
@@ -76,7 +77,7 @@ public class MethodKataTest
     [TestCaseSource(nameof(ArrayForTask3))]
     public void SolutionTest(string str, string[] array)
     {
-        var actual = methodKata.Solution(str);
+        var actual = decisionKata.Solution(str);
         
         var expected = array;
         
@@ -84,5 +85,4 @@ public class MethodKataTest
     }
 
     #endregion
-    
 }
