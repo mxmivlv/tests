@@ -1,4 +1,4 @@
-﻿using Kata;
+﻿using Project_2;
 using NUnit.Framework;
 
 [TestFixture]
