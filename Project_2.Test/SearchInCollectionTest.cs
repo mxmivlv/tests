@@ -6,7 +6,7 @@ public class SearchInCollectionTest
 {
     #region Поле
 
-    private SearchInCollection searchInCollection;
+    private SearchInCollection _searchInCollection;
 
     #endregion
 
@@ -15,7 +15,7 @@ public class SearchInCollectionTest
     [SetUp]
     public void SearchInCollectionTestSetUp()
     {
-        searchInCollection = new SearchInCollection();
+        _searchInCollection = new SearchInCollection();
     }
     
     #endregion
@@ -33,7 +33,7 @@ public class SearchInCollectionTest
     [TestCaseSource(nameof(ArrayForTask1))]
     public void BinarySearchTest(double[] array, double item, int indexItem)
     {
-        var actual = searchInCollection.BinarySearch(array, item);
+        var actual = _searchInCollection.BinarySearch(array, item);
         
         var expected = indexItem;
         
@@ -42,7 +42,7 @@ public class SearchInCollectionTest
 
     #endregion
 
-    #region Метод 2. Нахождение максимального числа в массиве
+    #region Тест 2. Нахождение максимального числа в массиве
 
     private static readonly object[] ArrayForTask2 = new object[]
     {
@@ -55,7 +55,7 @@ public class SearchInCollectionTest
     [TestCaseSource(nameof(ArrayForTask2))]
     public void MaximumNumberInTheArrayTest(int[] array, int maxNumber)
     {
-        var actual = searchInCollection.MaximumNumberInTheArray(array);
+        var actual = _searchInCollection.MaximumNumberInTheArray(array);
         
         var expected = maxNumber;
         
@@ -64,7 +64,7 @@ public class SearchInCollectionTest
 
     #endregion
 
-    #region Метод 3. Нахождение минимального числа в массиве
+    #region Тест 3. Нахождение минимального числа в массиве
 
     private static readonly object[] ArrayForTask3 = new object[]
     {
@@ -77,7 +77,7 @@ public class SearchInCollectionTest
     [TestCaseSource(nameof(ArrayForTask3))]
     public void MinimumNumberInTheArrayTest(int[] array, int minNumber)
     {
-        var actual = searchInCollection.MinimumNumberInTheArray(array);
+        var actual = _searchInCollection.MinimumNumberInTheArray(array);
         
         var expected = minNumber;
         
@@ -86,7 +86,7 @@ public class SearchInCollectionTest
 
     #endregion
 
-    #region Метод 4. Нахождение среднего значения массива
+    #region Тест 4. Нахождение среднего значения массива
 
     private static readonly object[] ArrayForTask4 = new object[]
     {
@@ -99,7 +99,7 @@ public class SearchInCollectionTest
     [TestCaseSource(nameof(ArrayForTask4))]
     public void AverageValueInTheArrayTest(int[] array, double averagNumber)
     {
-        var actual = searchInCollection.AverageValueInTheArray(array);
+        var actual = _searchInCollection.AverageValueInTheArray(array);
         
         var expected = averagNumber;
         
@@ -108,7 +108,7 @@ public class SearchInCollectionTest
 
     #endregion
 
-    #region Метод 5. Нахождение выгодного заказчика
+    #region Тест 5. Нахождение выгодного заказчика
 
     private static readonly object[] ArrayForTask5 = new object[]
     {
@@ -143,9 +143,54 @@ public class SearchInCollectionTest
     [TestCaseSource(nameof(ArrayForTask5))]
     public void ProfitableClientTest(int[][] array, int indexCustomer)
     {
-        var actual = searchInCollection.ProfitableClient(array);
+        var actual = _searchInCollection.ProfitableClient(array);
         
         var expected = indexCustomer;
+        
+        Assert.That(actual,Is.EqualTo(expected));
+    }
+
+    #endregion
+
+    #region Тест 6. Избежать уголовного преследования
+    
+    private static readonly object[] ArrayForTask6 = new object[]
+    {
+        new object[] { new int[][]
+            {
+                new int [] {95, 67, 13, 55, 44, 11, 15},
+                new int [] {0, 1, 2, 4, 6, 8, 10},
+                new int [] {-7, -5, -1, -10, 14, 90}
+            }, 
+            -1 
+        },
+        new object[] { new int[][]
+            {
+                new int [] {95, 67, 13, 55, 44, 11},
+                new int [] {0, 1, 2, 4, 6, 8, 95},
+                new int [] {-7, -5, -1, -10, 14, 90}
+            }, 
+            95 
+        },
+        new object[] { new int[][]
+            {
+                new int [] {-90, -67, -13, -55, -44, -11, -6},
+                new int [] {0, 1, 2, 4, 6, 8, 10},
+                new int [] {-7, -5, -1, -10, 14, 90}
+            }, 
+            -1 
+        }
+        
+
+    };
+    
+    [Test(Description = "Избежать уголовного преследования. Сумма должна повторятся в двух разных массивах, а не в одном")]
+    [TestCaseSource(nameof(ArrayForTask6))]
+    public void AvoidJailDueToTaxFraudTest(int[][] array, int amountOrIndex)
+    {
+        var actual = _searchInCollection.AvoidJailDueToTaxFraud(array);
+        
+        var expected = amountOrIndex;
         
         Assert.That(actual,Is.EqualTo(expected));
     }

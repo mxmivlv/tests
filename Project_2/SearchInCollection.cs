@@ -139,4 +139,43 @@ public class SearchInCollection
         
         return indexCustomer;
     }
+    
+    /// <summary>
+    /// Проверить массив на уникальные записи. Если записи в двух разных массивах не уникальны — вернуть первуть первую сумму,
+    /// которая повторяется, если уникальны: -1
+    /// </summary>
+    /// <param name="report">Массив</param>
+    /// <returns>Сумма, которая повторяется. Если все записи уникальны вернуть: -1</returns>
+    public int AvoidJailDueToTaxFraud(int[][] report)
+    {
+        // Перменная для вывода
+        int numbersReturn = -1;
+        
+        // Временная переменная для записи значения и дальнейшего сравнения
+        int tempNumbers = 0;
+
+        for (int i = 0; i < report.Length; i++)
+        {
+            for (int j = 0; j < report[i].Length; j++)
+            {
+                // Записали данные
+                tempNumbers = report[i][j];
+
+                for (int e = 0; e < report.Length; e++)
+                {
+                    for (int q = 0; q < report[e].Length; q++)
+                    {
+                        if (tempNumbers == report[e][q] && i != e && j != q)
+                        {
+                            numbersReturn = tempNumbers;
+                            
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        
+        return numbersReturn;
+    }
 }

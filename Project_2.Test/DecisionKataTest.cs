@@ -6,7 +6,7 @@ public class DecisionKataTest
 {
     #region Поле
 
-    private DecisionKata decisionKata;
+    private DecisionKata _decisionKata;
 
     #endregion
 
@@ -15,7 +15,7 @@ public class DecisionKataTest
     [SetUp]
     public void DecisionKataTestSetUp()
     {
-        decisionKata = new DecisionKata();
+        _decisionKata = new DecisionKata();
     }
 
     #endregion
@@ -33,7 +33,7 @@ public class DecisionKataTest
     [TestCaseSource(nameof(ArrayForTask1))]
     public void CreatePhoneNumberTest(int[] array, string createPhone)
     {
-        var actual = decisionKata.CreatePhoneNumber(array);
+        var actual = _decisionKata.CreatePhoneNumber(array);
         
         var expected = createPhone;
         
@@ -55,7 +55,7 @@ public class DecisionKataTest
     [TestCaseSource(nameof(ArrayForTask2))]
     public void GetIntegersFromListTest(List<object> listObj, List<int> listInt )
     {
-        var actual = decisionKata.GetIntegersFromList(listObj);
+        var actual = _decisionKata.GetIntegersFromList(listObj);
         
         var expected = listInt;
 
@@ -77,11 +77,46 @@ public class DecisionKataTest
     [TestCaseSource(nameof(ArrayForTask3))]
     public void SolutionTest(string str, string[] array)
     {
-        var actual = decisionKata.Solution(str);
+        var actual = _decisionKata.Solution(str);
         
         var expected = array;
         
         Assert.That(expected.SequenceEqual(actual));
+    }
+
+    #endregion
+
+    #region Тест 4. Валидность IP
+
+    private static readonly object[] ArrayForTask4 = new object[]
+    {
+        new object[] { "0.0.0.0", true },
+        new object[] { "12.255.56.1", true },
+        new object[] { "137.255.156.100", true },
+        new object[] { "", false },
+        new object[] { "abc.def.ghi.jkl", false },
+        new object[] { "123.456.789.0", false },
+        new object[] { "12.34.56", false },
+        new object[] { "12.34.56.00", false },
+        new object[] { "12.34.56.7.8", false },
+        new object[] { "12.34.256.78", false },
+        new object[] { "1234.34.56", false },
+        new object[] { "pr12.34.56.78", false },
+        new object[] { "12.34.56.78sf", false },
+        new object[] { "12.34.56 .1", false },
+        new object[] { "12.34.56.-1", false },
+        new object[] { "123.045.067.089", false },
+    };
+    
+    [Test(Description = "Валидность IP")]
+    [TestCaseSource(nameof(ArrayForTask4))]
+    public void IsValidIpTest(string ipAddress, bool isValidIp)
+    {
+        var actual = _decisionKata.IsValidIp(ipAddress);
+        
+        var expected = isValidIp;
+        
+        Assert.That(actual,Is.EqualTo(expected));
     }
 
     #endregion

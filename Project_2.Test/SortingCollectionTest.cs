@@ -5,7 +5,7 @@ public class SortingCollectionTest
 {
     #region Поле
 
-    private SortingCollection sortingCollection;
+    private SortingCollection _sortingCollection;
 
     #endregion
 
@@ -14,7 +14,7 @@ public class SortingCollectionTest
     [SetUp]
     public void SortingCollectionTestSetUp()
     {
-        sortingCollection = new SortingCollection();
+        _sortingCollection = new SortingCollection();
     }
     
     #endregion
@@ -32,11 +32,11 @@ public class SortingCollectionTest
     [TestCaseSource(nameof(ArrayForTask1))]
     public void SortingСhoiceTest(double[] array, double[] sortArray)
     {
-        var actual = sortingCollection.SortingСhoice(array);
+        var actual = _sortingCollection.SortingСhoice(array);
         
         var expected = sortArray;
         
-        Assert.That(actual,Is.EqualTo(expected));
+        Assert.That(expected.SequenceEqual(actual));
     }
 
     #endregion
@@ -54,11 +54,11 @@ public class SortingCollectionTest
     [TestCaseSource(nameof(ArrayForTask2))]
     public void QuickSortingTest(double[] array, double[] sortArray)
     {
-        var actual = sortingCollection.QuickSorting(array);
+        var actual = _sortingCollection.QuickSorting(array);
         
         var expected = sortArray;
         
-        Assert.That(actual,Is.EqualTo(expected));
+        Assert.That(expected.SequenceEqual(actual));
     }
 
     #endregion

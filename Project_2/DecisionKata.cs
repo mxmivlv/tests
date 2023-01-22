@@ -103,6 +103,33 @@ public class DecisionKata
             return returnResult;
         }
     }
+
+    /// <summary>
+    /// Проверка на валидность IP адреса
+    /// </summary>
+    /// <param name="ipAddress">IP адрес</param>
+    /// <returns>True - если валидный, иначе false</returns>
+    public bool IsValidIp(string ipAddress)
+    {
+        var objects = ipAddress.Split(".");
+          
+        if (objects.Count() != 4) return false;
+            
+        foreach (var obj in objects)
+        {
+            if (!int.TryParse(obj, out int numericObject))
+                return false;
+
+            if (numericObject < 0 || numericObject > 255)
+                return false;
+              
+            if (!numericObject.ToString().Equals(obj))
+                return false;
+        }
+          
+        return true;
+    }
+    
 }
 
 
