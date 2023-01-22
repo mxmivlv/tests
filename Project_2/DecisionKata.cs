@@ -10,7 +10,6 @@ public class DecisionKata
     public string CreatePhoneNumber(int[] numbers)
     {
         string numberPhone = "(";
-
         for (int i = 0; i < numbers.Length; i++)
         {
             if (i == 3)
@@ -22,7 +21,6 @@ public class DecisionKata
             {
                 numberPhone += "-";
             }
-
             numberPhone += numbers[i];
         }
             
@@ -40,7 +38,6 @@ public class DecisionKata
     public IEnumerable<int> GetIntegersFromList(List<object> listOfItems)
     {
         List<int> returnCollection = new List<int>();
-        
         for (int i = 0; i < listOfItems.Count; i++)
         {
             if (listOfItems[i].GetType() == typeof(int))
@@ -65,16 +62,13 @@ public class DecisionKata
         if (str.Length % 2 == 0)
         {
             string[] returnResult = new string[(str.Length / 2)];
-
             int countIndex = 0;
-
             for (int i = 0; i < returnResult.Length; i++)
             {
                 for (int j = countIndex; j < (countIndex+2); j++)
                 {
                     returnResult[i] += str[j];
                 }
-
                 countIndex += 2;
             }
             
@@ -83,21 +77,16 @@ public class DecisionKata
         else
         {
             string[] returnResult = new string[(str.Length / 2)+1];
-
             int countIndex = 0;
-
             for (int i = 0; i < returnResult.Length-1; i++)
             {
                 for (int j = countIndex; j < (countIndex+2); j++)
                 {
                     returnResult[i] += str[j];
                 }
-
                 countIndex += 2;
             }
-
             returnResult[(str.Length / 2)] += str[str.Length-1];
-
             returnResult[(str.Length / 2)] += '_';
             
             return returnResult;
@@ -112,9 +101,11 @@ public class DecisionKata
     public bool IsValidIp(string ipAddress)
     {
         var objects = ipAddress.Split(".");
-          
-        if (objects.Count() != 4) return false;
-            
+        if (objects.Count() != 4)
+        {
+            return false;
+        }
+        
         foreach (var obj in objects)
         {
             if (!int.TryParse(obj, out int numericObject))
@@ -129,7 +120,6 @@ public class DecisionKata
           
         return true;
     }
-    
 }
 
 

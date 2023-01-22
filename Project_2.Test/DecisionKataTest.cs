@@ -34,7 +34,6 @@ public class DecisionKataTest
     public void CreatePhoneNumberTest(int[] array, string createPhone)
     {
         var actual = _decisionKata.CreatePhoneNumber(array);
-        
         var expected = createPhone;
         
         Assert.That(actual,Is.EqualTo(expected));
@@ -56,7 +55,6 @@ public class DecisionKataTest
     public void GetIntegersFromListTest(List<object> listObj, List<int> listInt )
     {
         var actual = _decisionKata.GetIntegersFromList(listObj);
-        
         var expected = listInt;
 
         Assert.That(expected.SequenceEqual(actual));
@@ -78,7 +76,6 @@ public class DecisionKataTest
     public void SolutionTest(string str, string[] array)
     {
         var actual = _decisionKata.Solution(str);
-        
         var expected = array;
         
         Assert.That(expected.SequenceEqual(actual));
@@ -113,7 +110,6 @@ public class DecisionKataTest
     public void IsValidIpTest(string ipAddress, bool isValidIp)
     {
         var actual = _decisionKata.IsValidIp(ipAddress);
-        
         var expected = isValidIp;
         
         Assert.That(actual,Is.EqualTo(expected));

@@ -33,7 +33,6 @@ public class SortingCollectionTest
     public void SortingСhoiceTest(double[] array, double[] sortArray)
     {
         var actual = _sortingCollection.SortingСhoice(array);
-        
         var expected = sortArray;
         
         Assert.That(expected.SequenceEqual(actual));
@@ -55,7 +54,6 @@ public class SortingCollectionTest
     public void QuickSortingTest(double[] array, double[] sortArray)
     {
         var actual = _sortingCollection.QuickSorting(array);
-        
         var expected = sortArray;
         
         Assert.That(expected.SequenceEqual(actual));

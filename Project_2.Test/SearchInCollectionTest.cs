@@ -34,7 +34,6 @@ public class SearchInCollectionTest
     public void BinarySearchTest(double[] array, double item, int indexItem)
     {
         var actual = _searchInCollection.BinarySearch(array, item);
-        
         var expected = indexItem;
         
         Assert.That(actual,Is.EqualTo(expected));
@@ -56,7 +55,6 @@ public class SearchInCollectionTest
     public void MaximumNumberInTheArrayTest(int[] array, int maxNumber)
     {
         var actual = _searchInCollection.MaximumNumberInTheArray(array);
-        
         var expected = maxNumber;
         
         Assert.That(actual,Is.EqualTo(expected));
@@ -78,7 +76,6 @@ public class SearchInCollectionTest
     public void MinimumNumberInTheArrayTest(int[] array, int minNumber)
     {
         var actual = _searchInCollection.MinimumNumberInTheArray(array);
-        
         var expected = minNumber;
         
         Assert.That(actual,Is.EqualTo(expected));
@@ -100,7 +97,6 @@ public class SearchInCollectionTest
     public void AverageValueInTheArrayTest(int[] array, double averagNumber)
     {
         var actual = _searchInCollection.AverageValueInTheArray(array);
-        
         var expected = averagNumber;
         
         Assert.That(actual,Is.EqualTo(expected));
@@ -136,7 +132,6 @@ public class SearchInCollectionTest
             },
             0
         }
-        
     };
     
     [Test(Description = "Нахождение выгодного заказчика")]
@@ -144,7 +139,6 @@ public class SearchInCollectionTest
     public void ProfitableClientTest(int[][] array, int indexCustomer)
     {
         var actual = _searchInCollection.ProfitableClient(array);
-        
         var expected = indexCustomer;
         
         Assert.That(actual,Is.EqualTo(expected));
@@ -180,8 +174,6 @@ public class SearchInCollectionTest
             }, 
             -1 
         }
-        
-
     };
     
     [Test(Description = "Избежать уголовного преследования. Сумма должна повторятся в двух разных массивах, а не в одном")]
@@ -189,7 +181,6 @@ public class SearchInCollectionTest
     public void AvoidJailDueToTaxFraudTest(int[][] array, int amountOrIndex)
     {
         var actual = _searchInCollection.AvoidJailDueToTaxFraud(array);
-        
         var expected = amountOrIndex;
         
         Assert.That(actual,Is.EqualTo(expected));

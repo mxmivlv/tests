@@ -10,7 +10,6 @@ public class SortingCollection
     public double[] SortingСhoice(double[] arr)
     {
         double tempNumber;
-
         for (int i = 0; i < arr.Length; i++)
         {
             for (int k = i+1; k < arr.Length; k++)
@@ -18,9 +17,7 @@ public class SortingCollection
                 if (arr[i] > arr[k])
                 {
                     tempNumber = arr[k];
-                    
                     arr[k] = arr[i];
-                    
                     arr[i] = tempNumber;
                 }
             }
@@ -70,19 +67,13 @@ public class SortingCollection
             if (i <= j)
             {
                 temp = arr[i];
-
                 arr[i] = arr[j];
-
                 arr[j] = temp;
-
                 i++;
-
                 j--;
             }
         }
-
         QuickSorting(arr, minIndex, j);
-
         QuickSorting(arr, i, maxIndex);
 
         return arr;

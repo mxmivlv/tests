@@ -11,15 +11,11 @@ public class SearchInCollection
     public int BinarySearch(double[] arr, double item)
     {
         int firstNumber = 0;
-        
         int middleNumber;
-        
         int lastNumber = arr.Length-1;
-			
         while(firstNumber <= lastNumber)
         {
             middleNumber = (firstNumber + lastNumber) / 2;
-			
             if (arr[middleNumber] < item)
             {
                 firstNumber = middleNumber+1;
@@ -47,7 +43,6 @@ public class SearchInCollection
     public int MaximumNumberInTheArray(int[] array)
     {
         int maximumNumber = array[0];
-
         for (int i = 1; i < array.Length; i++)
         {
             if (maximumNumber < array[i])
@@ -67,7 +62,6 @@ public class SearchInCollection
     public int MinimumNumberInTheArray(int[] array)
     {
         int minimumNumber = array[0];
-
         for (int i = 1; i < array.Length; i++)
         {
             if (minimumNumber > array[i])
@@ -87,9 +81,7 @@ public class SearchInCollection
     public double AverageValueInTheArray(int[] array)
     {
         long count = array.Length;
-        
         double tempNumbers = array[0];
-
         for (int i = 1; i < array.Length; i++)
         {
             tempNumbers += array[i];
@@ -107,11 +99,12 @@ public class SearchInCollection
     {
         // Индекс заказчика для возврата
         int indexCustomer = 0;
+        
         // Доходы от заказчиков
         int incomeCustomer = 0;
+        
         // Коллекция в которой собраны все доходы по заказчикам
         List<int> collectionIncomeCustomer = new List<int>();
-
         for (int i = 0; i < array.Length; i++)
         {
             for (int q = 0; q < array[i].Length; q++)
@@ -119,20 +112,17 @@ public class SearchInCollection
                 incomeCustomer += array[i][q];
             }
             collectionIncomeCustomer.Add(incomeCustomer);
-            
             incomeCustomer = 0;
         }
 
         // Самое маленькое число
         int tempNumberMin = int.MinValue;
-
         for (int i = 0; i < collectionIncomeCustomer.Count; i++)
         {
             // Сравниваем и ищем самое большое число
             if (tempNumberMin < collectionIncomeCustomer[i])
             {
                 tempNumberMin = collectionIncomeCustomer[i];
-                
                 indexCustomer = i;
             }
         }
@@ -160,7 +150,6 @@ public class SearchInCollection
             {
                 // Записали данные
                 tempNumbers = report[i][j];
-
                 for (int e = 0; e < report.Length; e++)
                 {
                     for (int q = 0; q < report[e].Length; q++)
@@ -168,7 +157,6 @@ public class SearchInCollection
                         if (tempNumbers == report[e][q] && i != e && j != q)
                         {
                             numbersReturn = tempNumbers;
-                            
                             break;
                         }
                     }
